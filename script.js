@@ -9,23 +9,32 @@ var titleInput = document.getElementById("titleInput");
 var dateInput = document.getElementById("dateInput");
 var descInput = document.getElementById("descInput");
 var eventList = document.getElementById("eventList");
-var sortSelect = document.getElementById("sortBy");
+var sortSelect = document.getElementById("sortSelect");
+var searchInput = document.getElementById("searchInput");
+var emptyState = document.getElementById("emptyState");
+var searchQuery = "";
 
 function formatDate(dateStr) {
     return dateStr.split("-").reverse().join(".");
 }
 
 function sortEvents(mode) {
+    var sorted = arr.slice();
     if (mode === "dateAsc") {
-        events.sort(function(a, b) { return a.date.localeCompare(b.date); });
+        sorted.sort(function(a, b) { return a.date.localeCompare(b.date); });
     } else {
-        events.sort(function(a, b) { return b.date.localeCompare(a.date); });
+        sorted.sort(function(a, b) { return b.date.localeCompare(a.date); });
     }
+    return sorted;
 }
 
 function renderEvents() {
+    var sorted = sortEvents(sortSelect.value);
+
     eventList.innerHTML = "";
-    events.forEach(function(evt) {
+    emptyState.style.display = sorted.length ? "none" : "block";
+
+    sorted.forEach(function(evt) {
         var li = document.createElement("li");
         var title = document.createElement("div");
         title.style.fontWeight = "700";
