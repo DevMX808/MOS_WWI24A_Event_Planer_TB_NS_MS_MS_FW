@@ -1,4 +1,12 @@
-var events = [];
+var events = [
+    { title: "Mosbacher Weihnachtsmarkt", date: "2025-12-05", description: "Weihnachtliche Budenstadt rund um das Fachwerk-Ensemble." },
+    { title: "Silvesterfeier in Mosbach", date: "2025-12-31", description: "Feier zum Jahreswechsel mit Feuerwerk." }
+];
+
+function formatDate(dateStr) {
+    return dateStr.split("-").reverse().join(".");
+}
+
 var form = document.getElementById("eventForm");
 var titleInput = document.getElementById("titleInput");
 var dateInput = document.getElementById("dateInput");
@@ -9,7 +17,20 @@ function renderEvents() {
     eventList.innerHTML = "";
     events.forEach(function(evt) {
         var li = document.createElement("li");
-        li.innerHTML = "<strong>" + evt.title + "</strong> - " + evt.date + "<br>" + evt.description;
+        var title = document.createElement("div");
+        title.style.fontWeight = "700";
+        title.style.fontSize = "18px";
+        title.textContent = evt.title;
+
+        var date = document.createElement("p");
+        date.innerHTML = "<strong>Datum:</strong> " + formatDate(evt.date);
+
+        var desc = document.createElement("p");
+        desc.textContent = evt.description;
+
+        li.appendChild(title);
+        li.appendChild(date);
+        li.appendChild(desc);
         eventList.appendChild(li);
     });
 }
@@ -25,3 +46,5 @@ form.addEventListener("submit", function(e) {
     renderEvents();
     form.reset();
 });
+
+renderEvents();
