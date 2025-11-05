@@ -9,11 +9,52 @@ var form = document.getElementById("eventForm");
 var titleInput = document.getElementById("titleInput");
 var dateInput = document.getElementById("dateInput");
 var descInput = document.getElementById("descInput");
+var titleError = document.getElementById("titleError");
+var dateError = document.getElementById("dateError");
+var descError = document.getElementById("descError");
 var eventList = document.getElementById("eventList");
 var sortSelect = document.getElementById("sortSelect");
 var searchInput = document.getElementById("searchInput");
 var emptyState = document.getElementById("emptyState");
 var searchQuery = "";
+
+function clearErrors() {
+    [titleInput, dateInput, descInput].forEach(function(input) {
+        input.removeAttribute("aria-invalid");
+        input.closest(".fieldRow").classList.remove("hasError");
+    });
+    titleError.textContent = "";
+    dateError.textContent = "";
+    descError.textContent = "";
+}
+
+function showError(input, errorEl, message) {
+    input.setAttribute("aria-invalid", "true");
+    input.closest(".fieldRow").classList.add("hasError");
+    errorEl.textContent = message;
+}
+
+function validateForm() {
+    clearErrors();
+    var isValid = true;
+
+    if (!titleInput.value.trim()) {
+        showError(titleInput, titleError, "Titel darf nicht leer sein.");
+        isValid = false;
+    }
+
+    if (!dateInput.value) {
+        showError(dateInput, dateError, "Datum darf nicht leer sein.");
+        isValid = false;
+    }
+
+    if (!descInput.value.trim()) {
+        showError(descInput, descError, "Beschreibung darf nicht leer sein.");
+        isValid = false;
+    }
+
+    return isValid;
+}
 
 function formatDate(dateStr) {
     return dateStr.split("-").reverse().join(".");
@@ -66,15 +107,21 @@ function renderEvents() {
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
+
+    if (!validateForm()) {
+        return;
+    }
+
     var newEvent = {
-        title: titleInput.value,
+        title: titleInput.value.trim(),
         date: dateInput.value,
-        description: descInput.value
+        description: descInput.value.trim()
     };
     events.push(newEvent);
     events = sortEvents(events, "dateAsc");
     renderEvents();
     form.reset();
+    titleInput.focus();
 });
 
 sortSelect.addEventListener("change", renderEvents);

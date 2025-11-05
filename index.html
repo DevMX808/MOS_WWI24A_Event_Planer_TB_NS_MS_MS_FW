@@ -9,24 +9,35 @@
 <body>
 <header>
     <div>
-        <span>🎉</span>
-        <span>Event Planer</span>
+        <div>
+            <span>🎉</span>
+            <span>Event Planer</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Start</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
     </div>
-    <nav>
-        <ul>
-            <li><a href="#">Start</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-    </nav>
 </header>
 
 <main id="main">
     <section>
         <h3>Neues Event erstellen</h3>
-        <form id="eventForm">
-            <input id="titleInput" type="text" placeholder="Titel" required>
-            <input id="dateInput" type="date" required>
-            <textarea id="descInput" rows="4" placeholder="Beschreibung" required></textarea>
+        <form id="eventForm" novalidate>
+            <div class="fieldRow">
+                <input id="titleInput" type="text" placeholder="Titel" required maxlength="120">
+                <p id="titleError" class="fieldError"></p>
+            </div>
+            <div class="fieldRow">
+                <input id="dateInput" type="date" required>
+                <p id="dateError" class="fieldError"></p>
+            </div>
+            <div class="fieldRow">
+                <textarea id="descInput" rows="4" placeholder="Beschreibung" required maxlength="1000"></textarea>
+                <p id="descError" class="fieldError"></p>
+            </div>
             <button id="addBtn" type="submit">Hinzufügen</button>
         </form>
     </section>
@@ -53,6 +64,5 @@
 </footer>
 
 <script src="script.js" defer></script>
-
 </body>
 </html>

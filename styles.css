@@ -30,6 +30,12 @@ header > div {
     margin: 0 auto;
 }
 
+header > div > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 header span:first-child {
     font-size: 28px;
 }
@@ -37,7 +43,6 @@ header span:first-child {
 header span:last-child {
     font-size: 20px;
     font-weight: 600;
-    margin-left: 8px;
 }
 
 nav ul {
@@ -69,26 +74,63 @@ section {
     box-shadow: 0 1px 2px rgba(0,0,0,.06);
 }
 
-input, textarea, button {
+.fieldRow {
+    margin-bottom: 12px;
+}
+
+.fieldError {
+    display: none;
+    color: #c62828;
+    font-size: 14px;
+    margin: 4px 0 0 0;
+}
+
+.fieldRow.hasError .fieldError {
+    display: block;
+}
+
+input, textarea, select {
     display: block;
     width: 100%;
     padding: 12px;
     border: 1px solid #e2e5ea;
     border-radius: 6px;
     font-size: 16px;
-    margin-bottom: 12px;
+}
+
+input[aria-invalid="true"], textarea[aria-invalid="true"] {
+    border-color: #c62828;
+    box-shadow: 0 0 0 3px rgba(198,40,40,.12);
 }
 
 button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
     background: #191b1f;
     color: #fff;
     font-weight: 600;
     cursor: pointer;
     border: 0;
+    font-size: 16px;
 }
 
 button:hover {
     background: #22252a;
+}
+
+section > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+section > div:first-child input,
+section > div:first-child select {
+    display: inline-block;
+    width: auto;
 }
 
 #eventList {
