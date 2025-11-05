@@ -88,26 +88,30 @@ function renderEvents() {
     var sorted = sortEvents(filtered, sortSelect.value);
 
     eventList.innerHTML = "";
-    emptyState.style.display = sorted.length ? "none" : "block";
 
-    sorted.forEach(function(evt) {
-        var li = document.createElement("li");
-        var title = document.createElement("div");
-        title.style.fontWeight = "700";
-        title.style.fontSize = "18px";
-        title.textContent = evt.title;
+    if (sorted.length === 0) {
+        emptyState.style.display = "block";
+    } else {
+        emptyState.style.display = "none";
+        sorted.forEach(function(evt) {
+            var li = document.createElement("li");
+            var title = document.createElement("div");
+            title.style.fontWeight = "700";
+            title.style.fontSize = "18px";
+            title.textContent = evt.title;
 
-        var date = document.createElement("p");
-        date.innerHTML = "<strong>Datum:</strong> " + formatDate(evt.date);
+            var date = document.createElement("p");
+            date.innerHTML = "<strong>Datum:</strong> " + formatDate(evt.date);
 
-        var desc = document.createElement("p");
-        desc.textContent = evt.description;
+            var desc = document.createElement("p");
+            desc.textContent = evt.description;
 
-        li.appendChild(title);
-        li.appendChild(date);
-        li.appendChild(desc);
-        eventList.appendChild(li);
-    });
+            li.appendChild(title);
+            li.appendChild(date);
+            li.appendChild(desc);
+            eventList.appendChild(li);
+        });
+    }
 }
 
 form.addEventListener("submit", function(e) {
