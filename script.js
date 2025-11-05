@@ -1,7 +1,8 @@
 var events = [
     { title: "Mosbacher Weihnachtsmarkt", date: "2025-12-05", description: "Weihnachtliche Budenstadt rund um das Fachwerk-Ensemble." },
     { title: "Silvesterfeier in Mosbach", date: "2025-12-31", description: "Feier zum Jahreswechsel mit Feuerwerk." },
-    { title: "Neujahrswanderung", date: "2026-01-01", description: "Geführte Wanderung durch den winterlichen Odenwald." }
+    { title: "Neujahrswanderung", date: "2026-01-01", description: "Geführte Wanderung durch den winterlichen Odenwald." },
+    { title: "Winterkonzert Heidelberg", date: "2025-12-20", description: "Festliches Konzert in der Heiliggeistkirche." }
 ];
 
 var form = document.getElementById("eventForm");
@@ -18,7 +19,7 @@ function formatDate(dateStr) {
     return dateStr.split("-").reverse().join(".");
 }
 
-function sortEvents(mode) {
+function sortEvents(arr, mode) {
     var sorted = arr.slice();
     if (mode === "dateAsc") {
         sorted.sort(function(a, b) { return a.date.localeCompare(b.date); });
@@ -28,8 +29,17 @@ function sortEvents(mode) {
     return sorted;
 }
 
+function filterEvents(arr, query) {
+    if (!query) return arr;
+    var q = query.toLowerCase();
+    return arr.filter(function(evt) {
+        return evt.title.toLowerCase().includes(q) || evt.description.toLowerCase().includes(q);
+    });
+}
+
 function renderEvents() {
-    var sorted = sortEvents(sortSelect.value);
+    var filtered = filterEvents(events, searchQuery);
+    var sorted = sortEvents(filtered, sortSelect.value);
 
     eventList.innerHTML = "";
     emptyState.style.display = sorted.length ? "none" : "block";
@@ -62,15 +72,16 @@ form.addEventListener("submit", function(e) {
         description: descInput.value
     };
     events.push(newEvent);
-    sortEvents("dateAsc");
+    events = sortEvents(events, "dateAsc");
     renderEvents();
     form.reset();
 });
 
-sortSelect.addEventListener("change", function() {
-    sortEvents(sortSelect.value);
+sortSelect.addEventListener("change", renderEvents);
+
+searchInput.addEventListener("input", function() {
+    searchQuery = searchInput.value;
     renderEvents();
 });
 
-sortEvents("dateAsc");
 renderEvents();
