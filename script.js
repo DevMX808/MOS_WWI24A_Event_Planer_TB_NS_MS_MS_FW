@@ -1,8 +1,9 @@
 var events = [
-    { title: "Mosbacher Weihnachtsmarkt", date: "2025-12-05", description: "Weihnachtliche Budenstadt rund um das Fachwerk-Ensemble." },
-    { title: "Silvesterfeier in Mosbach", date: "2025-12-31", description: "Feier zum Jahreswechsel mit Feuerwerk." },
-    { title: "Neujahrswanderung", date: "2026-01-01", description: "Geführte Wanderung durch den winterlichen Odenwald." },
-    { title: "Winterkonzert Heidelberg", date: "2025-12-20", description: "Festliches Konzert in der Heiliggeistkirche." }
+    { title: "Mosbacher Weihnachtsmarkt", date: "2025-12-05", description: "Weihnachtliche Budenstadt rund um das Fachwerk-Ensemble, Glühwein & Kunsthandwerk." },
+    { title: "Silvesterfeier in Mosbach", date: "2025-12-31", description: "Feier zum Jahreswechsel mit Feuerwerk und Live-Musik in der Altstadt." },
+    { title: "Neujahrswanderung im Odenwald", date: "2026-01-01", description: "Geführte Wanderung durch die winterliche Natur in der Nähe von Mosbach." },
+    { title: "Winterkonzert in Heidelberg", date: "2025-12-20", description: "Festliches Konzert in der Heiliggeistkirche, nur eine kurze Fahrt von Mosbach entfernt." },
+    { title: "Karnevalsauftakt in Neckarsteinach", date: "2026-01-11", description: "Beginn der Faschingssaison mit Umzug und Feierlichkeiten in der Nähe." }
 ];
 
 var form = document.getElementById("eventForm");
@@ -64,8 +65,12 @@ function sortEvents(arr, mode) {
     var sorted = arr.slice();
     if (mode === "dateAsc") {
         sorted.sort(function(a, b) { return a.date.localeCompare(b.date); });
-    } else {
+    } else if (mode === "dateDesc") {
         sorted.sort(function(a, b) { return b.date.localeCompare(a.date); });
+    } else if (mode === "titleAsc") {
+        sorted.sort(function(a, b) { return a.title.localeCompare(b.title, "de"); });
+    } else if (mode === "titleDesc") {
+        sorted.sort(function(a, b) { return b.title.localeCompare(a.title, "de"); });
     }
     return sorted;
 }
@@ -131,4 +136,5 @@ searchInput.addEventListener("input", function() {
     renderEvents();
 });
 
+events = sortEvents(events, "dateAsc");
 renderEvents();
