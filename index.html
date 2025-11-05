@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Event Planer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="script.js"></script>
 </head>
 <body>
 <header>
@@ -21,7 +20,28 @@
 </header>
 
 <main id="main">
-    <h1>Test</h1>
+    <section>
+        <h3>Neues Event erstellen</h3>
+        <form id="eventForm">
+            <div>
+                <input id="titleInput" type="text" placeholder="Titel" required>
+            </div>
+            <div>
+                <input id="dateInput" type="date" required>
+            </div>
+            <div>
+                <textarea id="descInput" rows="4" placeholder="Beschreibung" required></textarea>
+            </div>
+            <div>
+                <button id="addBtn" type="submit">Hinzufügen</button>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <h3>Meine Events</h3>
+        <ul id="eventList"></ul>
+    </section>
 </main>
 
 <footer>
@@ -29,5 +49,8 @@
         <p>© 2025 Event Planer</p>
     </div>
 </footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
