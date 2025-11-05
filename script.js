@@ -1,17 +1,27 @@
 var events = [
     { title: "Mosbacher Weihnachtsmarkt", date: "2025-12-05", description: "Weihnachtliche Budenstadt rund um das Fachwerk-Ensemble." },
-    { title: "Silvesterfeier in Mosbach", date: "2025-12-31", description: "Feier zum Jahreswechsel mit Feuerwerk." }
+    { title: "Silvesterfeier in Mosbach", date: "2025-12-31", description: "Feier zum Jahreswechsel mit Feuerwerk." },
+    { title: "Neujahrswanderung", date: "2026-01-01", description: "Geführte Wanderung durch den winterlichen Odenwald." }
 ];
-
-function formatDate(dateStr) {
-    return dateStr.split("-").reverse().join(".");
-}
 
 var form = document.getElementById("eventForm");
 var titleInput = document.getElementById("titleInput");
 var dateInput = document.getElementById("dateInput");
 var descInput = document.getElementById("descInput");
 var eventList = document.getElementById("eventList");
+var sortSelect = document.getElementById("sortBy");
+
+function formatDate(dateStr) {
+    return dateStr.split("-").reverse().join(".");
+}
+
+function sortEvents(mode) {
+    if (mode === "dateAsc") {
+        events.sort(function(a, b) { return a.date.localeCompare(b.date); });
+    } else {
+        events.sort(function(a, b) { return b.date.localeCompare(a.date); });
+    }
+}
 
 function renderEvents() {
     eventList.innerHTML = "";
@@ -43,8 +53,14 @@ form.addEventListener("submit", function(e) {
         description: descInput.value
     };
     events.push(newEvent);
+    sortEvents("dateAsc");
     renderEvents();
     form.reset();
+});
+
+sortSelect.addEventListener("change", function() {
+    sortEvents(sortSelect.value);
+    renderEvents();
 });
 
 renderEvents();
