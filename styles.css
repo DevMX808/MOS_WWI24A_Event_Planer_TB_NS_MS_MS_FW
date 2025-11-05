@@ -1,3 +1,19 @@
+:root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #1d1e20;
+    --muted: #6a6d75;
+    --btn-dark: #191b1f;
+    --btn-dark-hover: #22252a;
+    --border: #e2e5ea;
+    --error: #c62828;
+    --shadow: 0 1px 2px rgba(15,23,42,.06), 0 8px 24px rgba(15,23,42,.06);
+
+    --gap: 16px;
+    --spacing: 8px;
+    --radius: 6px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,21 +21,21 @@
 body {
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-    color: #1d1e20;
-    background: #ffffff;
+    color: var(--text);
+    background: var(--bg);
     font-size: 16px;
     line-height: 1.6;
 }
 
 h3 {
     font-size: 24px;
-    margin: 0 0 16px 0;
+    margin: 0 0 var(--gap) 0;
 }
 
 header {
-    background: #ffffff;
-    border-bottom: 1px solid #e2e5ea;
-    padding: 16px 24px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: var(--gap) 24px;
 }
 
 header > div {
@@ -33,7 +49,7 @@ header > div {
 header > div > div:first-child {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--spacing);
 }
 
 header span:first-child {
@@ -54,7 +70,7 @@ nav ul {
 }
 
 nav a {
-    color: #1d1e20;
+    color: var(--text);
     text-decoration: none;
     font-weight: 700;
 }
@@ -66,12 +82,12 @@ main {
 }
 
 section {
-    background: #ffffff;
-    border: 1px solid #e2e5ea;
-    border-radius: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     padding: 24px;
-    margin-bottom: 16px;
-    box-shadow: 0 1px 2px rgba(0,0,0,.06);
+    margin-bottom: var(--gap);
+    box-shadow: var(--shadow);
 }
 
 .fieldRow {
@@ -80,7 +96,7 @@ section {
 
 .fieldError {
     display: none;
-    color: #c62828;
+    color: var(--error);
     font-size: 14px;
     margin: 4px 0 0 0;
 }
@@ -93,13 +109,15 @@ input, textarea, select {
     display: block;
     width: 100%;
     padding: 12px;
-    border: 1px solid #e2e5ea;
-    border-radius: 6px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     font-size: 16px;
+    background: #fff;
+    color: var(--text);
 }
 
 input[aria-invalid="true"], textarea[aria-invalid="true"] {
-    border-color: #c62828;
+    border-color: var(--error);
     box-shadow: 0 0 0 3px rgba(198,40,40,.12);
 }
 
@@ -107,23 +125,24 @@ button {
     display: block;
     width: 100%;
     padding: 12px;
-    border-radius: 6px;
-    background: #191b1f;
+    border-radius: var(--radius);
+    background: var(--btn-dark);
     color: #fff;
     font-weight: 600;
     cursor: pointer;
     border: 0;
     font-size: 16px;
+    box-shadow: var(--shadow);
 }
 
 button:hover {
-    background: #22252a;
+    background: var(--btn-dark-hover);
 }
 
 section > div:first-child {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--spacing);
     margin-bottom: 12px;
 }
 
@@ -141,13 +160,13 @@ section > div:first-child select {
 
 #eventList li {
     padding: 12px 0;
-    border-bottom: 1px solid #e2e5ea;
+    border-bottom: 1px solid var(--border);
 }
 
 footer {
-    background: #ffffff;
-    border-top: 1px solid #e2e5ea;
-    padding: 16px 24px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: var(--gap) 24px;
     text-align: center;
-    color: #6a6d75;
+    color: var(--muted);
 }
