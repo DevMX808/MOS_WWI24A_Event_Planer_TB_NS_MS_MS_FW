@@ -63,4 +63,5 @@ sortSelect.addEventListener("change", function() {
     renderEvents();
 });
 
+sortEvents("dateAsc");
 renderEvents();
