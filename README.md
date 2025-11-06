@@ -48,6 +48,7 @@ Gemäß Aufgabenstellung wurden **ausschließlich** native Web-Technologien verw
 
 ```
 event-planer/
+├── .gitignore      # Ignoriert unnötige Dateien wie IDE-spezifische Ordner
 ├── index.html      # Hauptseite mit semantischem HTML
 ├── styles.css      # Responsive Styles mit CSS Custom Properties
 ├── script.js       # Event-Logik mit Validierung
@@ -203,7 +204,7 @@ Getestet und optimiert für:
 
 ## Git-History
 
-Das Projekt wurde über 31 Commits hinweg entwickelt und zeigt eine realistische Entwicklungs-Progression vom 24.09. bis 06.11.2025.
+Das Projekt wurde über 32 Commits hinweg entwickelt und zeigt eine realistische Entwicklungs-Progression vom 24.09. bis 06.11.2025.
 
 ```bash
 git log --oneline
