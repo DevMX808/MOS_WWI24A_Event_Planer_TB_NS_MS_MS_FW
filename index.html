@@ -1,3 +1,10 @@
+<!--
+  Gruppenname: MOS_WWI24A_Event_Manager_TB_NS_MS_MS_FW
+  Projektname: Event Planer
+  Projektmitglieder: Timo Becker, Nils Scharnbacher, Mursel Semsedini, Fabian Wiedenmeyer
+  GitHub: https://github.com/DevMX808/MOS_WWI24A_Event_Planer_TB_NS_MS_MS_FW
+-->
+
 <!doctype html>
 <html lang="de">
 <head>
@@ -17,7 +24,6 @@
         <nav class="primaryNav">
             <ul class="navList">
                 <li><a href="#" aria-current="page">Start</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
             </ul>
         </nav>
     </div>
@@ -30,15 +36,18 @@
         </div>
         <form id="eventForm" novalidate>
             <div class="fieldRow">
-                <input id="titleInput" class="input" name="title" type="text" required autocomplete="off" maxlength="120" placeholder="Titel" aria-describedby="titleError">
+                <label for="titleInput" class="sr-only">Titel</label>
+                <input id="titleInput" class="input" name="title" type="text" required autocomplete="off" maxlength="120" placeholder="Titel" aria-describedby="titleError" aria-label="Event-Titel">
                 <p id="titleError" class="fieldError" role="alert"></p>
             </div>
             <div class="fieldRow">
-                <input id="dateInput" class="input" name="date" type="date" required placeholder="tt.mm.jjjj" aria-describedby="dateError">
+                <label for="dateInput" class="sr-only">Datum</label>
+                <input id="dateInput" class="input" name="date" type="date" required placeholder="tt.mm.jjjj" aria-describedby="dateError" aria-label="Event-Datum">
                 <p id="dateError" class="fieldError" role="alert"></p>
             </div>
             <div class="fieldRow">
-                <textarea id="descInput" class="input" name="description" required rows="4" maxlength="1000" placeholder="Beschreibung" aria-describedby="descError"></textarea>
+                <label for="descInput" class="sr-only">Beschreibung</label>
+                <textarea id="descInput" class="input" name="description" required rows="4" maxlength="1000" placeholder="Beschreibung" aria-describedby="descError" aria-label="Event-Beschreibung"></textarea>
                 <p id="descError" class="fieldError" role="alert"></p>
             </div>
             <div class="actions">
