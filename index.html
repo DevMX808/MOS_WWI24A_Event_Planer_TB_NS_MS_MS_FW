@@ -5,62 +5,68 @@
     <title>Event Planer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>">
 </head>
 <body>
-<header>
-    <div>
-        <div>
-            <span>🎉</span>
-            <span>Event Planer</span>
+<header class="siteHeader">
+    <div class="container headerBar">
+        <div class="brand">
+            <span aria-hidden="true">🎉</span>
+            <span class="brandText">Event Planer</span>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Start</a></li>
+        <nav class="primaryNav">
+            <ul class="navList">
+                <li><a href="#" aria-current="page">Start</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
-<main id="main">
-    <section>
-        <h3>Neues Event erstellen</h3>
+<main id="main" class="container siteMain">
+    <section class="card" aria-labelledby="createEventHeading">
+        <div class="cardHeader">
+            <h3 id="createEventHeading">Neues Event erstellen</h3>
+        </div>
         <form id="eventForm" novalidate>
             <div class="fieldRow">
-                <input id="titleInput" type="text" placeholder="Titel" required maxlength="120">
-                <p id="titleError" class="fieldError"></p>
+                <input id="titleInput" class="input" name="title" type="text" required autocomplete="off" maxlength="120" placeholder="Titel" aria-describedby="titleError">
+                <p id="titleError" class="fieldError" role="alert"></p>
             </div>
             <div class="fieldRow">
-                <input id="dateInput" type="date" required>
-                <p id="dateError" class="fieldError"></p>
+                <input id="dateInput" class="input" name="date" type="date" required placeholder="tt.mm.jjjj" aria-describedby="dateError">
+                <p id="dateError" class="fieldError" role="alert"></p>
             </div>
             <div class="fieldRow">
-                <textarea id="descInput" rows="4" placeholder="Beschreibung" required maxlength="1000"></textarea>
-                <p id="descError" class="fieldError"></p>
+                <textarea id="descInput" class="input" name="description" required rows="4" maxlength="1000" placeholder="Beschreibung" aria-describedby="descError"></textarea>
+                <p id="descError" class="fieldError" role="alert"></p>
             </div>
-            <button id="addBtn" type="submit">Hinzufügen</button>
+            <div class="actions">
+                <button id="addBtn" type="submit" class="btn">Hinzufügen</button>
+            </div>
         </form>
     </section>
 
-    <section>
-        <div>
-            <label for="sortSelect">Sortieren:</label>
-            <select id="sortSelect">
-                <option value="dateAsc">Datum aufsteigend</option>
-                <option value="dateDesc">Datum absteigend</option>
-                <option value="titleAsc">Titel A-Z</option>
-                <option value="titleDesc">Titel Z-A</option>
-            </select>
-            <input id="searchInput" type="search" placeholder="Suchen…">
+    <section class="card" aria-label="Event-Liste" aria-live="polite">
+        <div class="cardHeader listHeader">
+            <div class="controls">
+                <label for="sortSelect">Sortieren nach:</label>
+                <select id="sortSelect" class="input" aria-label="Sortierung wählen">
+                    <option value="dateAsc">Datum aufsteigend</option>
+                    <option value="dateDesc">Datum absteigend</option>
+                    <option value="titleAsc">Titel A-Z</option>
+                    <option value="titleDesc">Titel Z-A</option>
+                </select>
+                <input id="searchInput" class="input" type="search" placeholder="Suchen…" aria-label="Suche in Titel und Beschreibung" autocomplete="off">
+            </div>
         </div>
-        <h3>Meine Events</h3>
-        <ul id="eventList"></ul>
-        <p id="emptyState" style="display:none; color:#6a6d75;">Keine Ergebnisse gefunden.</p>
+        <ul id="eventList" class="eventList"></ul>
+        <p id="emptyState" class="emptyState">Keine Ergebnisse. Passen Sie die Suche an.</p>
     </section>
 </main>
 
-<footer>
-    <div>
+<footer class="siteFooter">
+    <div class="container">
         <p>© 2025 Event Planer</p>
     </div>
 </footer>
