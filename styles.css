@@ -10,13 +10,13 @@
     --shadow: 0 1px 2px rgba(15,23,42,.06), 0 8px 24px rgba(15,23,42,.06);
 
     --container-w: 960px;
-    --container-pad: 24px;
-    --gap: 16px;
-    --spacing: 8px;
-    --radius: 6px;
+    --container-pad: clamp(0.75rem, 3vw, 1.5rem);
+    --gap: 1.0625rem;
+    --spacing: clamp(0.25rem, 0.5vw, 0.5rem);
+    --radius: 0.4375rem;
 }
 
-* {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -32,12 +32,20 @@ body {
 h3 {
     font-size: 24px;
     margin: 0 0 var(--gap) 0;
+    font-weight: 600;
+}
+
+.container {
+    max-width: var(--container-w);
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
 }
 
 header {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
-    padding: var(--gap) var(--container-pad);
+    padding-block: clamp(0.75rem, 1.6vw, 1.125rem);
+    padding-inline: var(--container-pad);
 }
 
 header > div {
@@ -51,21 +59,21 @@ header > div {
 header > div > div:first-child {
     display: flex;
     align-items: center;
-    gap: var(--spacing);
+    gap: 0.625rem;
 }
 
 header span:first-child {
-    font-size: 28px;
+    font-size: 1.6rem;
 }
 
 header span:last-child {
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
 nav ul {
     display: flex;
-    gap: 24px;
+    gap: clamp(1.25rem, 3vw, 2rem);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -79,15 +87,16 @@ nav a {
 
 main {
     max-width: var(--container-w);
-    margin: 24px auto;
-    padding: 0 var(--container-pad);
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
+    padding-block: clamp(1rem, 3vw, 1.75rem);
 }
 
 section {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 24px;
+    padding: 1.5625rem var(--container-pad) 2.0625rem;
     margin-bottom: var(--gap);
     box-shadow: var(--shadow);
 }
@@ -99,8 +108,8 @@ section {
 .fieldError {
     display: none;
     color: var(--error);
-    font-size: 14px;
-    margin: 4px 0 0 0;
+    font-size: 0.95em;
+    margin: 0.375rem 0 0 0;
 }
 
 .fieldRow.hasError .fieldError {
@@ -110,10 +119,10 @@ section {
 input, textarea, select {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem 0.875rem;
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    font-size: 16px;
+    font-size: 1rem;
     background: #fff;
     color: var(--text);
 }
@@ -123,17 +132,21 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] {
     box-shadow: 0 0 0 3px rgba(198,40,40,.12);
 }
 
+textarea {
+    resize: vertical;
+}
+
 button {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 0.875rem 1.125rem;
     border-radius: var(--radius);
     background: var(--btn-dark);
     color: #fff;
     font-weight: 600;
     cursor: pointer;
     border: 0;
-    font-size: 16px;
+    font-size: 1rem;
     box-shadow: var(--shadow);
 }
 
@@ -141,11 +154,15 @@ button:hover {
     background: var(--btn-dark-hover);
 }
 
+button:active {
+    transform: translateY(1px);
+}
+
 section > div:first-child {
     display: flex;
     align-items: center;
-    gap: var(--spacing);
-    margin-bottom: 12px;
+    gap: 0.5rem;
+    margin-bottom: clamp(0.5rem, 1vw, 0.75rem);
 }
 
 section > div:first-child input,
@@ -154,21 +171,41 @@ section > div:first-child select {
     width: auto;
 }
 
+#sortSelect {
+    width: 13.75rem;
+}
+
+#searchInput {
+    width: 16.25rem;
+}
+
 #eventList {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: grid;
+    gap: var(--spacing);
 }
 
 #eventList li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
+    padding: 0;
+}
+
+#eventList li > div:first-child {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: var(--spacing);
+}
+
+#eventList li p {
+    margin: 0 0 var(--spacing) 0;
 }
 
 footer {
     background: var(--surface);
     border-top: 1px solid var(--border);
-    padding: var(--gap) var(--container-pad);
+    padding-block: clamp(0.75rem, 2vw, 1.125rem);
+    padding-inline: var(--container-pad);
     text-align: center;
     color: var(--muted);
 }
