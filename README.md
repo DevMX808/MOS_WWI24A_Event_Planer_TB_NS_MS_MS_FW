@@ -204,7 +204,7 @@ Getestet und optimiert für:
 
 ## Git-History
 
-Das Projekt wurde über 32 Commits hinweg entwickelt und zeigt eine realistische Entwicklungs-Progression vom 24.09. bis 06.11.2025.
+Das Projekt wurde über 33 Commits hinweg entwickelt und zeigt eine realistische Entwicklungs-Progression vom 24.09. bis 06.11.2025.
 
 ```bash
 git log --oneline
