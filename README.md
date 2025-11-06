@@ -1,7 +1,7 @@
 <!--
   Gruppenname: MOS_WWI24A_Event_Manager_TB_NS_MS_MS_FW
   Projektname: Event Planer
-  Projektmitglieder: Timo Becker, Nils Scharnbacher, Mursel Semsedini, Fabian Wiedenmeyer
+  Projektmitglieder: Timo Becker, Nils Scharnbacher, Mursel Semsedini, Maximilian Sturm, Fabian Wiedenmeyer
   GitHub: https://github.com/DevMX808/MOS_WWI24A_Event_Planer_TB_NS_MS_MS_FW
 -->
 
@@ -204,7 +204,7 @@ Getestet und optimiert für:
 
 ## Git-History
 
-Das Projekt wurde über 34 Commits hinweg entwickelt und zeigt eine realistische Entwicklungs-Progression vom 24.09. bis 06.11.2025.
+Das Projekt wurde über 35 Commits hinweg entwickelt und zeigt eine realistische Entwicklungs-Progression vom 24.09. bis 06.11.2025.
 
 ```bash
 git log --oneline
