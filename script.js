@@ -122,7 +122,8 @@
     }
 
     function formatDate(dateString) {
-        return dateString.split("-").reverse().join(".");
+        let [year, month, day] = dateString.split("-").map((part, i) => i === 0 ? part : parseInt(part, 10));
+        return `${day}.${month}.${year}`;
     }
 
     function createEventElement(event) {

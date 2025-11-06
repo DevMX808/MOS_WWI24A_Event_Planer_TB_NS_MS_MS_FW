@@ -24,6 +24,7 @@
         <nav class="primaryNav">
             <ul class="navList">
                 <li><a href="#" aria-current="page">Start</a></li>
+                <li><a href="#"> Kontakt</a></li>
             </ul>
         </nav>
     </div>
@@ -36,17 +37,17 @@
         </div>
         <form id="eventForm" novalidate>
             <div class="fieldRow">
-                <label for="titleInput" class="sr-only">Titel</label>
+                <label for="titleInput" class="sr-only"></label>
                 <input id="titleInput" class="input" name="title" type="text" required autocomplete="off" maxlength="120" placeholder="Titel" aria-describedby="titleError" aria-label="Event-Titel">
                 <p id="titleError" class="fieldError" role="alert"></p>
             </div>
             <div class="fieldRow">
-                <label for="dateInput" class="sr-only">Datum</label>
+                <label for="dateInput" class="sr-only"></label>
                 <input id="dateInput" class="input" name="date" type="date" required placeholder="tt.mm.jjjj" aria-describedby="dateError" aria-label="Event-Datum">
                 <p id="dateError" class="fieldError" role="alert"></p>
             </div>
             <div class="fieldRow">
-                <label for="descInput" class="sr-only">Beschreibung</label>
+                <label for="descInput" class="sr-only"></label>
                 <textarea id="descInput" class="input" name="description" required rows="4" maxlength="1000" placeholder="Beschreibung" aria-describedby="descError" aria-label="Event-Beschreibung"></textarea>
                 <p id="descError" class="fieldError" role="alert"></p>
             </div>

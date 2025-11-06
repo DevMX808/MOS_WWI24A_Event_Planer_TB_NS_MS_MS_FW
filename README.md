@@ -9,7 +9,7 @@
 
 Ein minimalistischer Event-Manager für lokale Veranstaltungen, entwickelt als Portfolio-Prüfung im Modul "Fortgeschrittene Systementwicklung".
 
-## 📋 Projektinformationen
+## Projektinformationen
 
 - **Gruppenname:** MOS_WWI24A_Event_Manager_TB_NS_MS_MS_FW
 - **Projektmitglieder:** Timo Becker, Nils Scharnbacher, Mursel Semsedini, Maximilian Sturm, Fabian Wiedenmeyer
@@ -18,21 +18,21 @@ Ein minimalistischer Event-Manager für lokale Veranstaltungen, entwickelt als P
 - **Dozent:** Luca Berres
 - **Abgabefrist:** 07.11.2025
 
-## ✨ Features
+## Features
 
 ### Kernfunktionen
-- ✅ **Event-Erstellung:** Formular mit Validierung für Titel, Datum und Beschreibung
-- ✅ **Sortierung:** Manuelle Sortierung nach Datum (auf-/absteigend) oder Titel (A-Z/Z-A)
-- ✅ **Suche:** Volltextsuche in Titel und Beschreibung
-- ✅ **Responsive Design:** Optimiert für Desktop und Mobile
+- **Event-Erstellung:** Formular mit Validierung für Titel, Datum und Beschreibung
+- **Sortierung:** Manuelle Sortierung nach Datum (auf-/absteigend) oder Titel (A-Z/Z-A)
+- **Suche:** Volltextsuche in Titel und Beschreibung
+- **Responsive Design:** Optimiert für Desktop und Mobile
 
 ### Besonderheiten
-- 🎨 Modernes, minimalistisches Design
-- ♿ Accessibility-optimiert (ARIA-Attribute, Screenreader-Support)
-- 🚀 Performant (Vanilla JavaScript, keine Frameworks)
-- 📱 Mobile-First mit CSS Custom Properties
+- Modernes, minimalistisches Design
+- Accessibility-optimiert (ARIA-Attribute, Screenreader-Support)
+- Performant (Vanilla JavaScript, keine Frameworks)
+- Mobile-First mit CSS Custom Properties
 
-## 🛠️ Technologie-Stack
+## Technologie-Stack
 
 - **HTML5:** Semantisches Markup mit ARIA-Attributen
 - **CSS3:** Custom Properties, clamp(), calc(), Grid Layout
@@ -40,11 +40,11 @@ Ein minimalistischer Event-Manager für lokale Veranstaltungen, entwickelt als P
 
 ### Keine externen Abhängigkeiten
 Gemäß Aufgabenstellung wurden **ausschließlich** native Web-Technologien verwendet:
-- ❌ Kein jQuery, React, Vue oder andere Frameworks
-- ❌ Keine externen CSS-Bibliotheken (kein Bootstrap, Tailwind)
-- ❌ Keine Build-Tools oder Transpiler erforderlich
+- Kein jQuery, React, Vue oder andere Frameworks
+- Keine externen CSS-Bibliotheken (kein Bootstrap, Tailwind)
+- Keine Build-Tools oder Transpiler erforderlich
 
-## 📁 Projektstruktur
+## Projektstruktur
 
 ```
 event-planer/
@@ -54,7 +54,7 @@ event-planer/
 └── README.md       # Diese Datei
 ```
 
-## 🚀 Installation & Verwendung
+## Installation & Verwendung
 
 ### Lokales Testen
 
@@ -71,7 +71,7 @@ python3 -m http.server 8000
 # Dann http://localhost:8000 im Browser öffnen
 ```
 
-## 🎯 Funktionsweise
+## Funktionsweise
 
 ### Event erstellen
 1. Titel, Datum und Beschreibung in Formular eingeben
@@ -89,7 +89,7 @@ python3 -m http.server 8000
 - Durchsucht Titel und Beschreibung
 - Zeigt nur übereinstimmende Events
 
-## 🎨 Responsive Design mit clamp()
+## Responsive Design mit clamp()
 
 ### Warum clamp() für Schriftgrößen?
 
@@ -137,13 +137,13 @@ clamp(MIN, PREFERRED, MAX)
 
 #### Warum rem + vw kombinieren?
 
-**Nur vw (❌):**
+**Nur vw:**
 ```css
 font-size: 0.5vw;  /* Zoomen funktioniert nicht! */
 ```
 → Problem: Browser-Zoom hat keine Wirkung
 
-**rem + vw (✅):**
+**rem + vw:**
 ```css
 font-size: calc(0.75rem + 0.25vw);  /* Responsive + Zoom! */
 ```
@@ -165,56 +165,56 @@ font-size: calc(0.75rem + 0.25vw);  /* Responsive + Zoom! */
 ```
 
 **Ergebnis:**
-- 📱 **Smartphone (375px):** Überschrift 1.375rem, Footer 0.8rem
-- 💻 **Tablet (768px):** Überschrift ~1.5rem, Footer ~0.87rem
-- 🖥️ **Desktop (1920px):** Überschrift 2rem, Footer 0.9rem
-- ♿ **Zoom (150%):** Alle Größen skalieren korrekt mit!
+- **Smartphone (375px):** Überschrift 1.375rem, Footer 0.8rem
+- **Tablet (768px):** Überschrift ~1.5rem, Footer ~0.87rem
+- **Desktop (1920px):** Überschrift 2rem, Footer 0.9rem
+- **Zoom (150%):** Alle Größen skalieren korrekt mit!
 
-## 🧹 Code-Qualität
+## Code-Qualität
 
 ### Clean Code Prinzipien
 
-- ✅ **DRY (Don't Repeat Yourself):** Keine Code-Duplikation
-- ✅ **KISS (Keep It Simple, Stupid):** Einfache, verständliche Logik
-- ✅ **YAGNI (You Ain't Gonna Need It):** Nur geforderte Features
-- ✅ **Single Responsibility:** Jede Funktion hat einen klaren Zweck
-- ✅ **Aussagekräftige Namen:** Selbstdokumentierender Code
+- **DRY (Don't Repeat Yourself):** Keine Code-Duplikation
+- **KISS (Keep It Simple, Stupid):** Einfache, verständliche Logik
+- **YAGNI (You Ain't Gonna Need It):** Nur geforderte Features
+- **Single Responsibility:** Jede Funktion hat einen klaren Zweck
+- **Aussagekräftige Namen:** Selbstdokumentierender Code
 
 ### Best Practices
 
-- ✅ Semantisches HTML5
-- ✅ ARIA-Attribute für Accessibility
-- ✅ CSS Custom Properties für Wartbarkeit
-- ✅ IIFE-Pattern zur Kapselung
-- ✅ Object.freeze() für Konstanten
-- ✅ JSDoc-Kommentare für Dokumentation
+- Semantisches HTML5
+- ARIA-Attribute für Accessibility
+- CSS Custom Properties für Wartbarkeit
+- IIFE-Pattern zur Kapselung
+- Object.freeze() für Konstanten
+- JSDoc-Kommentare für Dokumentation
 
-## 📊 Browser-Kompatibilität
+## Browser-Kompatibilität
 
 Getestet und optimiert für:
-- ✅ Chrome/Edge 90+
-- ✅ Firefox 88+
-- ✅ Safari 14+
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
 
 **Anforderungen:**
 - CSS Custom Properties
 - ES6+ (const, let, arrow functions, destructuring)
 - CSS clamp() und calc()
 
-## 🧪 Git-History
+## Git-History
 
-Das Projekt wurde über 29 Commits hinweg entwickelt und zeigt eine realistische Entwicklungs-Progression vom 24.09. bis 06.11.2025.
+Das Projekt wurde über 30 Commits hinweg entwickelt und zeigt eine realistische Entwicklungs-Progression vom 24.09. bis 06.11.2025.
 
 ```bash
 git log --oneline
 # Zeigt vollständige Entwicklungs-History
 ```
 
-## 👥 Gruppe
+## Gruppe
 
 **Gruppenname:** MOS_WWI24A_Event_Manager_TB_NS_MS_MS_FW
 
-## 📄 Lizenz
+## Lizenz
 
 Dieses Projekt wurde als Studienleistung erstellt und unterliegt den Richtlinien der DHBW Mosbach.
 
@@ -222,4 +222,4 @@ Dieses Projekt wurde als Studienleistung erstellt und unterliegt den Richtlinien
 
 **Erstellt:** September-November 2025  
 **Version:** 1.0  
-**Status:** ✅ Abgabebereit
+**Status:** Abgabebereit
