@@ -27,7 +27,7 @@
     --font-heading: clamp(1.375rem, calc(1.1rem + 0.12vw), 2rem);
     --font-brand: clamp(1.25rem, 1.1rem + 0.6vw, 1.9rem);
     --font-title: clamp(1.25rem, 1.2rem + 0.25vw, 1.45rem);
-    --font-footer: clamp(0.8rem, 0.75rem + 0.25vw, 0.9rem);
+    --font-footer: clamp(0.825rem, 0.75rem + 0.3vw, 1rem);
 }
 
 *, *::before, *::after {
